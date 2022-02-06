@@ -1,0 +1,52 @@
+#%RAML 1.0
+title: Book my show
+version: 1.0
+/bookmyshow:
+  /fetchmovies:
+    get:
+      description: "This http method will help you to fetch the movie information from database"
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                [
+                  {
+                    "MovieName" : "Bahubali",
+                    "Genre" : "War"
+                  },
+                  {
+                    "MovieName" : "Bahubali 2",
+                    "Genre" : "War"
+                  }
+                ]
+  /booktickets:            
+    post:
+      description: "This http method will help you in booking a ticket"
+      body:
+        application/json:
+          type: object
+          properties:
+            MovieName:
+              type: string
+              minLength: 1
+              maxLength: 35
+              required: true
+              description: "Movie Name"
+            NumberofTickets:
+              type: integer
+              required: true
+              description: "NumberofTickets"
+          example:
+            {
+              "MovieName" : "Bahubali",
+              "NumberofTickets" : 5
+            }
+      responses:
+        201:
+          body:
+            application/json:
+              example:
+                {
+                  "status" : "Your ticket booking is done"
+                }
