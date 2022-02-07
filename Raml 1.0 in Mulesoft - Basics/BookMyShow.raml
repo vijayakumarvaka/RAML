@@ -2,9 +2,9 @@
 title: Book my show
 version: 1.0
 /bookmyshow:
-  /fetchmovies:
+  /movies:
     get:
-      description: "This http method will help you to fetch the movie information from database"
+      description: "This http method will help you to fetch the movie information from backend system"
       responses:
         200:
           body:
@@ -20,7 +20,7 @@ version: 1.0
                     "Genre" : "War"
                   }
                 ]
-  /booktickets:            
+  /tickets:            
     post:
       description: "This http method will help you in booking a ticket"
       body:
